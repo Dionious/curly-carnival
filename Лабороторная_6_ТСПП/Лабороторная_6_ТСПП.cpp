@@ -1,20 +1,72 @@
-﻿// Лабороторная_6_ТСПП.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
+﻿#include <stdlib.h>
+#include <string>
 #include <iostream>
+#include <conio.h>
+#include <cstring>
 
-int main()
+
+using namespace std;
+
+struct info
 {
-    std::cout << "Hello World!\n";
-}
 
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
+};
 
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
+class Kniga
+{
+public:
+	int ID;
+	char name[30];
+	char author[30];
+	char price[5];
+	char god[8];
+	int quantity;
+	bool status;
+	Kniga* next;
+};
+
+class Manager
+{
+public:
+	Kniga* head, * tail;
+	Kniga elem;
+public:
+	Manager();
+	~Manager();
+	Kniga* Add(const Kniga& n);
+	Kniga Vvod();
+	Kniga* AddFirst(const Kniga& n);
+	Kniga* Delete();
+	void Prosmotr();
+	void Print(const Kniga& n);
+	int Proverka();
+	Kniga* Get_head();
+	Kniga* Get_tail();
+	void Add1();
+	bool Checker();
+};
+
+class Librarian
+{
+	char FIO[30];
+	char doljnost[20];
+public:
+
+	void Prinyatie();
+	void Vidacha();
+};
+
+class Client : public Manager
+
+{
+public:
+	char kniga_na_rukax[30];
+private:
+	char FIO[30];
+	char tel[20];
+public:
+	void Searchbook(Manager& ob);
+	void Getting(Manager& ob);
+	void Returning();
+
+};
