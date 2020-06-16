@@ -16,7 +16,7 @@ class Kniga
 {
 public:
 	int ID;
-	char name[30];
+	char name[25];
 	char author[30];
 	char price[5];
 	char god[8];
